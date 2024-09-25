@@ -1,0 +1,83 @@
+/* Desktop styling */
+#desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('assests/desktop.jpg') no-repeat center center/cover;
+}
+
+/* Bootup screen */
+#bootup-screen {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: rgb(0, 146, 32);
+  font-family: monospace;
+  padding: 20px;
+}
+
+/* Terminal window */
+#terminal {
+  position: fixed;
+  bottom: 60px;
+  right: 250px;
+  width: 600px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: green;
+  font-family: monospace;
+  padding: 10px;
+  border: 2px solid #444;
+  display: flex;
+  flex-direction: column;
+  resize: both;  /* Allows resizing */
+  overflow: auto; /* Enables scroll on resize */
+}
+
+#terminal-header {
+  background-color: #333;
+  padding: 5px;
+  color: white;
+  cursor: move;
+  text-align: center;
+}
+
+#terminal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.prompt {
+  display: inline;
+  color: green;
+  font-family: monospace;
+}
+
+#terminal-input {
+  width: calc(100% - 150px); /* Adjust input width to avoid overlapping */
+  background: none;
+  border: none;
+  color: green;
+  font-family: monospace;
+  font-size: 16px;
+  outline: none;
+}
+
+body {
+  background-color: black;
+}
+
+/* Dragging feature */
+.draggable {
+  position: absolute;
+  cursor: move;
+}
+
+/* To enable resizing */
+.resizable {
+  resize: both;
+  overflow: hidden;
+}

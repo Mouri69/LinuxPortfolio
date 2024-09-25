@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux-Themed Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Bootup screen -->
+  <div id="bootup-screen">
+    <pre id="bootup-text">Booting Linux...
+Loading modules...
+Starting services...
+Welcome to Linux Portfolio!</pre>
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop" style="display: none;">
+    <!-- Terminal window -->
+    <div id="terminal" class="draggable resizable">
+      <div id="terminal-header">Terminal</div>
+      <div id="terminal-content">
+        <p><span class="prompt">user@linux-portfolio:~$</span><input type="text" id="terminal-input" autofocus></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
