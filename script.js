@@ -85,46 +85,81 @@ window.onload = function() {
     }
 
     // Function to execute commands
-    function executeCommand(command, input) {
-        // Get the last prompt span
-        const commandSpan = input.previousElementSibling;
+function executeCommand(command, input) {
+    // Get the last prompt span
+    const commandSpan = input.previousElementSibling;
 
-        // Display the command entered by the user
-        commandSpan.textContent += command; 
+    // Display the command entered by the user
+    commandSpan.textContent += command; 
 
-        // Handle commands
-        if (command.startsWith('cd')) {
-            const folderName = command.split(' ')[1];
-            openProject(folderName);
-        } else if (command === 'ls') {
-            terminalContent.innerHTML += `<p>Project 1  Project 2</p>`;
-        } else if (command === 'clear') {
-            terminalContent.innerHTML = ''; // Clear terminal screen
-        } else {
-            terminalContent.innerHTML += `<p>Command not found: ${command}</p>`;
-        }
+    // Handle commands
+    if (command.startsWith('cd')) {
+        const folderName = command.split(' ')[1];
+        openProject(folderName.toLowerCase()); // Convert folderName to lowercase
+    } else if (command === 'ls') {
+        const projects = [
+            "SnakeGame",
+            "RandomTeam",
+            "FaceBlur",
+            "vrom-vrom-car",
+            "Weather",
+            "LiveWebChat",
+            "SpyGame",
+            "SpotifyNew",
+            "Connect4",
+            "XO-game",
+            "Project-Portfolio",
+            "2048-Game",
+            "FlappyBird",
+            "Kemo-Portfolio",
+            "Lofi-Cafe (under construction)",
+            "LinuxPortfolio"
+        ];
 
-        // Disable the old input
-        input.remove();
-
-        // Append a new prompt after the command has been processed
-        appendPrompt();
+        // Clear the terminal output for previous commands
+        terminalContent.innerHTML += '<p style="color: #434B8D;">' + projects.join('</p><p style="color: #434B8D;">') + '</p>';
+    } else if (command === 'clear') {
+        terminalContent.innerHTML = ''; // Clear terminal screen
+    } else {
+        terminalContent.innerHTML += `<p>Command not found: ${command}</p>`;
     }
 
-    // Function to handle 'cd' command and open projects
-    function openProject(folderName) {
-        const projects = {
-            'project1': 'https://link-to-project1.com',
-            'project2': 'https://link-to-project2.com'
-        };
+    // Disable the old input
+    input.remove();
 
-        if (projects[folderName]) {
-            window.open(projects[folderName], '_blank'); // Open in a new tab
-        } else {
-            terminalContent.innerHTML += `<p>No such directory: ${folderName}</p>`;
-        }
-    }
-
-    // Start with the first prompt after bootup
+    // Append a new prompt after the command has been processed
     appendPrompt();
+}
+
+// Function to handle 'cd' command and open projects
+function openProject(folderName) {
+    const projects = {
+        'snakegame': 'https://mouri69-snakegame.vercel.app',
+        'randomteam': 'https://mouri69-randomteam.vercel.app',
+        'faceblur': 'https://mouri69-faceblur.vercel.app',
+        'vrom-vrom-car': 'https://mouri69-vromvromcar.vercel.app',
+        'weather': 'https://mouri69-weather.vercel.app',
+        'livewebchat': 'https://mouri69-livewebchat.vercel.app',
+        'spygame': 'https://mouri69-spygame.vercel.app',
+        'spotifynew': 'https://mouri69-recommender.vercel.app',
+        'connect4': 'https://mouri69-connect4.vercel.app',
+        'xo-game': 'https://mouri69-xo.vercel.app',
+        'project-portfolio': 'https://mouri69-project-portfolio.vercel.app',
+        '2048-game': 'https://mouri69-2048.vercel.app',
+        'flappybird': 'https://mouri69-flappybird.vercel.app',
+        'kemo-portfolio': 'https://mouri69-kemo.vercel.app',
+        'lofi-cafe (under construction)': 'https://mouri69-loficafe.vercel.app',
+        'linuxportfolio': 'https://mouri69-linuxportfolio.vercel.app'
+    };
+
+    const projectKey = folderName.toLowerCase(); // Use lowercase for consistency
+    if (projects[projectKey]) { // Check against the lowercase project key
+        window.open(projects[projectKey], '_blank'); // Open in a new tab
+    } else {
+        terminalContent.innerHTML += `<p>No such directory: ${folderName}</p>`;
+    }
+}
+
+// Start with the first prompt after bootup
+appendPrompt();
 };
