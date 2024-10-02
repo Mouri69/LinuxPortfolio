@@ -22,10 +22,10 @@
 #terminal {
   position: fixed;
   bottom: 60px;
-  right: 250px;
-  width: 600px;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.9);
+  right: 100px;
+  width: 800px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
   color: green;
   font-family: monospace;
   padding: 10px;
@@ -56,14 +56,21 @@
   font-family: monospace;
 }
 
-#terminal-input {
-  width: calc(100% - 150px); /* Adjust input width to avoid overlapping */
-  background: none;
-  border: none;
-  color: green;
-  font-family: monospace;
+#terminal-input,
+.active-input {
+  width: calc(100% - 150px); /* Adjust width as necessary */
+  background: none; /* Transparent background */
+  border: none; /* Remove border */
+  color: green; /* Keep text color green for terminal effect */
+  font-family: monospace; /* Use monospace font for terminal feel */
   font-size: 16px;
-  outline: none;
+  outline: none; /* Remove default outline when focused */
+  caret-color: green; /* Make the cursor green for better visibility */
+}
+
+input {
+  border: none !important; /* Ensure no border appears */
+  outline: none !important; /* Remove outline on focus */
 }
 
 body {
