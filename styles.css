@@ -20,7 +20,7 @@
 
 /* Terminal window */
 #terminal {
-  position: fixed;
+  position: absolute;
   bottom: 60px;
   right: 100px;
   width: 700px;

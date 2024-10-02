@@ -5,6 +5,7 @@ window.onload = function() {
     const terminalContent = document.getElementById('terminal-content');
     const terminal = document.getElementById('terminal');
     const newInput = document.querySelector('.active-input');
+    const terminalHeader = document.getElementById('terminal-header'); // Get the terminal header
 
 
 
@@ -14,6 +15,29 @@ window.onload = function() {
         desktop.style.display = 'block';
         terminalInput.focus(); // Ensure terminal input is focused
     }, 3000);
+
+    // Dragging functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    terminalHeader.onmousedown = function(event) {
+        isDragging = true;
+        offsetX = event.clientX - terminal.getBoundingClientRect().left;
+        offsetY = event.clientY - terminal.getBoundingClientRect().top;
+        
+        document.onmousemove = function(event) {
+            if (isDragging) {
+                terminal.style.left = event.clientX - offsetX + 'px';
+                terminal.style.top = event.clientY - offsetY + 'px';
+            }
+        };
+
+        document.onmouseup = function() {
+            isDragging = false;
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
 
     // Function to append prompt at the end of terminal
     function appendPrompt() {
