@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('assests/desktop.jpg') no-repeat center center/cover;
+  background: url('assests/background.jpeg') no-repeat center center/cover;
 }
 
 /* Bootup screen */
@@ -99,10 +99,16 @@ body {
   align-items: center; /* Center icons horizontally */
 }
 
+.icon-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack icon and label vertically */
+  align-items: center; /* Center icon and label horizontally */
+}
+
 .icon {
   width: 64px; /* Set the default size of the icons */
   height: auto; /* Maintain aspect ratio */
-  margin: 23px 0; /* Space between icons vertically */
+  margin: 10px; /* Remove vertical margin */
   transition: transform 0.2s; /* Smooth transition for hover effect */
 }
 
@@ -111,8 +117,10 @@ body {
   transform: scale(1.2); /* Increase size on hover */
   cursor: pointer; /* Change cursor to pointer */
 }
+
 .icon-label {
   color: white; /* Adjust text color as needed */
   font-family: monospace; /* Optional: use a monospace font */
-  margin-top: -10px; /* Space between icon and label */
+  margin-top: 5px; /* Space between icon and label */
+  text-align: center; /* Center align text */
 }
