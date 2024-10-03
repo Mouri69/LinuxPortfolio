@@ -176,3 +176,42 @@ function updateTime() {
 // Update time and date every second
 setInterval(updateTime, 1000);
 updateTime(); // Initial call to set time immediately
+
+//Opens spotify
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the terminal and taskbar icons
+    const terminalIcon = document.querySelector('.taskbar-icon[alt="Terminal"]');
+    const terminal = document.getElementById("terminal");
+    const spotifyIcon = document.querySelector('.taskbar-icon[alt="Spotify"]');
+
+    // Add click event to open/close terminal
+    terminalIcon.addEventListener("click", () => {
+        if (terminal.style.display === "none" || terminal.style.display === "") {
+            terminal.style.display = "flex"; // Show the terminal
+            terminal.focus(); // Optional: focus the terminal
+        } else {
+            terminal.style.display = "none"; // Hide the terminal
+        }
+    });
+
+    // Add click event to open Spotify
+    spotifyIcon.addEventListener("click", () => {
+        window.open("https://open.spotify.com/artist/5QKGejJMncXUNUb9pUFbEf", "_blank"); // Open Spotify in a new tab
+    });
+
+    // Hide the terminal initially
+    terminal.style.display = "none";
+
+    // Function to update time and date in the taskbar
+    function updateTime() {
+        const now = new Date();
+        const time = now.toLocaleTimeString();
+        const date = now.toLocaleDateString();
+        document.getElementById("time").textContent = time;
+        document.getElementById("date").textContent = date;
+    }
+
+    setInterval(updateTime, 1000); // Update time every second
+    updateTime(); // Initial call to display time immediately
+});

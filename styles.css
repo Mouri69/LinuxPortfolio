@@ -218,7 +218,7 @@ body {
   position:relative;
   width: 30px; /* Adjust size of icons */
   height: auto; /* Maintain aspect ratio */
-  left:15%;
+  left:10%;
   margin-right:20px;
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: transform 0.2s; /* Smooth transition for hover effect */
