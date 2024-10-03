@@ -8,7 +8,6 @@ window.onload = function() {
     const terminalHeader = document.getElementById('terminal-header'); // Get the terminal header
 
 
-
     // Simulate bootup process
     setTimeout(() => {
         bootupScreen.style.display = 'none';
@@ -103,7 +102,7 @@ function executeCommand(command, input) {
             "FaceBlur",
             "vrom-vrom-car",
             "Weather",
-            "LiveWebChat",
+            "WebChat",
             "SpyGame",
             "SpotifyNew",
             "Connect4",
@@ -139,7 +138,7 @@ function openProject(folderName) {
         'faceblur': 'https://mouri69-faceblur.vercel.app',
         'vrom-vrom-car': 'https://mouri69-vromvromcar.vercel.app',
         'weather': 'https://mouri69-weather.vercel.app',
-        'livewebchat': 'https://mouri69-livewebchat.vercel.app',
+        'webchat': 'https://mouri69-livewebchat.vercel.app',
         'spygame': 'https://mouri69-spygame.vercel.app',
         'spotifynew': 'https://mouri69-recommender.vercel.app',
         'connect4': 'https://mouri69-connect4.vercel.app',
@@ -163,3 +162,17 @@ function openProject(folderName) {
 // Start with the first prompt after bootup
 appendPrompt();
 };
+
+function updateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateString = now.toLocaleDateString(undefined, options);
+    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    document.getElementById('time').textContent = timeString;
+    document.getElementById('date').textContent = dateString;
+}
+
+// Update time and date every second
+setInterval(updateTime, 1000);
+updateTime(); // Initial call to set time immediately
