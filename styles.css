@@ -217,6 +217,14 @@ body {
   align-items: center; /* Center items vertically */
 }
 
+/* Vertical lines */
+.vertical-line {
+  width: 1px; /* Width of the vertical line */
+  height: 30px; /* Height of the vertical line */
+  background-color: rgba(0, 0, 0, 0.5); /* Color of the vertical line */
+  margin: 0 10px; /* Space between the line and surrounding content */
+}
+
 /* Taskbar icons */
 .taskbar-icon {
   width: 30px; /* Adjust size of icons */
