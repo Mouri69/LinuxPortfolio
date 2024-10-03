@@ -98,6 +98,14 @@ body {
   flex-direction: column; /* Stack icons vertically */
   align-items: center; /* Center icons horizontally */
 }
+.desktop-icons2 {
+  position: absolute;
+  top: 0%; /* Adjust position as needed */
+  left: 150%; /* Adjust position as needed */
+  display: flex;
+  flex-direction: column; /* Stack icons vertically */
+  align-items: center; /* Center icons horizontally */
+}
 
 .icon-container {
   display: flex; /* Use flexbox for alignment */
