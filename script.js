@@ -6,14 +6,36 @@ window.onload = function() {
     const terminal = document.getElementById('terminal');
     const newInput = document.querySelector('.active-input');
     const terminalHeader = document.getElementById('terminal-header'); // Get the terminal header
+    const desktopIconsContainer = document.querySelector('.desktop-icons');
+    const taskbar = document.getElementById('taskbar');
+    const taskbarHeight = taskbar.offsetHeight;
+    const screenHeight = window.innerHeight;
+    const startButton = document.getElementById('start-button'); // Get the start button
 
+    // Initially hide the desktop
+    desktop.style.display = 'none';
 
-    // Simulate bootup process
-    setTimeout(() => {
-        bootupScreen.style.display = 'none';
-        desktop.style.display = 'block';
-        terminalInput.focus(); // Ensure terminal input is focused
-    }, 3000);
+    // Button click event to start the desktop
+    startButton.addEventListener('click', () => {
+        bootupScreen.style.display = 'none'; 
+        desktop.style.display = 'block'; 
+        setTimeout(goFullScreen, 50);
+        appendPrompt();
+    });
+    
+function goFullScreen() {
+    const element = document.documentElement; // This selects the entire document
+    
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+    }
+}
 
     // Dragging functionality
     let isDragging = false;
@@ -217,4 +239,53 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update time and date every minute
     setInterval(updateTime, 60000);
     updateTime(); // Initial call to set time and date immediately
+
+    function adjustIconsLayout() {
+        const icons = document.querySelectorAll('.icon-container');
+        let currentYPosition = 3; // Initial top offset (match CSS)
+        let column = 0;
+        const iconHeight = icons[0].offsetHeight + 15; // Icon height + margin
+        const maxHeight = window.innerHeight - taskbar.offsetHeight - 15; // Available height minus taskbar and margin
+    
+        icons.forEach((icon, index) => {
+            if (currentYPosition + iconHeight > maxHeight) {
+                // If the icon exceeds available height, move to the next column
+                column++;
+                currentYPosition = 3; // Reset top position for new column
+            }
+    
+            // Set the icon position dynamically
+            icon.style.position = 'absolute';
+            icon.style.left = `${column * 100}px`; // Move to the right for each column (adjust column width as needed)
+            icon.style.top = `${currentYPosition}px`;
+    
+            // Increment the Y position for the next icon
+            currentYPosition += iconHeight;
+        });
+    }
+
+    // Add a small delay to ensure layout is fully rendered
+    setTimeout(() => {
+        adjustIconsLayout(); // Call after the content is fully loaded
+    }, 100); // Slight delay before calculating layout
+
+    window.addEventListener('resize', adjustIconsLayout); // Adjust on window resize
+    
 });
+
+function goFullScreen() {
+    const element = document.documentElement; // This selects the entire document
+    
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+    }
+}
+
+
+

@@ -146,13 +146,15 @@ body {
 }
 
 /* Desktop icons */
+/* Modify the desktop icons container to allow for wrapping */
 .desktop-icons {
   position: absolute;
-  top: 3%; /* Adjust position as needed */
-  left: 2%; /* Adjust position as needed */
+  top: 3%;
+  left: 2%;
+  width: 100px; /* Adjust based on icon size */
   display: flex;
-  flex-direction: column; /* Stack icons vertically */
-  align-items: center; /* Center icons horizontally */
+  flex-wrap: wrap; /* Allow wrapping when space is filled */
+  align-content: flex-start; /* Align icons to the top */
 }
 
 .desktop-icons2 {
