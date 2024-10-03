@@ -185,6 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const terminal = document.getElementById("terminal");
     const spotifyIcon = document.querySelector('.taskbar-icon[alt="Spotify"]');
 
+    // Hide the terminal initially
+    terminal.style.display = "none";
+
     // Add click event to open/close terminal
     terminalIcon.addEventListener("click", () => {
         if (terminal.style.display === "none" || terminal.style.display === "") {
@@ -200,18 +203,18 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open("https://open.spotify.com/artist/5QKGejJMncXUNUb9pUFbEf", "_blank"); // Open Spotify in a new tab
     });
 
-    // Hide the terminal initially
-    terminal.style.display = "none";
-
     // Function to update time and date in the taskbar
     function updateTime() {
         const now = new Date();
-        const time = now.toLocaleTimeString();
-        const date = now.toLocaleDateString();
-        document.getElementById("time").textContent = time;
-        document.getElementById("date").textContent = date;
+        const options = { year: 'numeric', month: 'long', day: 'numeric' }; // Date options
+        const dateString = now.toLocaleDateString(undefined, options); // Format date
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format time without seconds
+
+        document.getElementById('time').textContent = timeString; // Update time
+        document.getElementById('date').textContent = dateString; // Update date
     }
 
-    setInterval(updateTime, 60000); // Update time every second
-    updateTime(); // Initial call to display time immediately
+    // Update time and date every minute
+    setInterval(updateTime, 60000);
+    updateTime(); // Initial call to set time and date immediately
 });
