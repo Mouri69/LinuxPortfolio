@@ -188,6 +188,7 @@ body {
   font-family: monospace; /* Optional: use a monospace font */
   margin-top: 5px; /* Space between icon and label */
   text-align: center; /* Center align text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add shadow to text */
 }
 
 /* Taskbar styling */
