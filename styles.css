@@ -171,7 +171,7 @@ body {
 }
 
 .icon {
-  width: 64px; /* Set the default size of the icons */
+  width: 50px; /* Set the default size of the icons */
   height: auto; /* Maintain aspect ratio */
   margin: 10px; /* Remove vertical margin */
   transition: transform 0.2s; /* Smooth transition for hover effect */
@@ -198,7 +198,7 @@ body {
   transform: translateX(-50%);
   width: 95%;
   border-radius: 10px;
-  height: 45px; /* Adjust height as needed */
+  height: 50px; /* Adjust height as needed */
   background-color: rgba(228, 228, 228, 0.6); /* Dark transparent background */
   backdrop-filter: blur(10px);
   display: flex;
