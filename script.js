@@ -165,7 +165,7 @@ appendPrompt();
 
 function updateTime() {
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {year: 'numeric', month: 'long', day: 'numeric' };
     const dateString = now.toLocaleDateString(undefined, options);
     const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -174,7 +174,7 @@ function updateTime() {
 }
 
 // Update time and date every second
-setInterval(updateTime, 1000);
+setInterval(updateTime, 6000);
 updateTime(); // Initial call to set time immediately
 
 //Opens spotify
@@ -212,6 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("date").textContent = date;
     }
 
-    setInterval(updateTime, 1000); // Update time every second
+    setInterval(updateTime, 60000); // Update time every second
     updateTime(); // Initial call to display time immediately
 });
