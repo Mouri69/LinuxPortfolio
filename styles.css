@@ -100,8 +100,8 @@ body {
 }
 .desktop-icons2 {
   position: absolute;
-  top: 0%; /* Adjust position as needed */
-  left: 150%; /* Adjust position as needed */
+  top: 5%; /* Adjust position as needed */
+  left: 10%; /* Adjust position as needed */
   display: flex;
   flex-direction: column; /* Stack icons vertically */
   align-items: center; /* Center icons horizontally */
