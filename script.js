@@ -20,7 +20,6 @@ window.onload = function() {
         bootupScreen.style.display = 'none'; 
         desktop.style.display = 'block'; 
         setTimeout(goFullScreen, 50);
-        appendPrompt();
     });
     
 function goFullScreen() {
