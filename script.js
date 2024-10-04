@@ -300,67 +300,112 @@ document.getElementById('start-icon').addEventListener('click', function() {
   });
   
 
- // Folder data
-const folderData = {
-    "Snake Game": {
-        title: "Snake Game Folder",
-        description: "A 'snake' with a fixed starting position. The 'head' of the snake continually moves forward, unable to stop, growing ever longer.",
-        gif: "assests/videos/snakegame.gif"
-    },
-    "Random Team": {
-        title: "Random Team Folder",
-        description: "This folder contains random team generation tools.",
-        gif: "assests/videos/random_team.gif" // Example GIF
-    },
-    "Face Blur": {
-        title: "Face Blur Folder",
-        description: "This folder contains face blur tools.",
-        gif: "assests/videos/face_blur.gif" // Example GIF
-    },
-    "Vrom Vrom Car": {
-        title: "Vrom Vrom Car Folder",
-        description: "This folder contains the Vrom Vrom Car game.",
-        gif: "assests/videos/vromvrom.gif" // Example GIF
-    },
-    "Weather": {
-        title: "Weather Folder",
-        description: "This folder contains weather-related applications.",
-        gif: "assests/videos/weather.gif" // Example GIF
-    },
-    // Add all other folders similarly
-};
-
-// Function to handle the double-click event
-document.querySelectorAll('.icon-container').forEach(icon => {
-    icon.addEventListener('dblclick', function() {
-        const folderName = this.querySelector('.icon-label').innerText;
-        const folderInfo = folderData[folderName];
-
-        if (folderInfo) {
-            // Update folder title and content
-            document.getElementById('folder-title').innerText = folderInfo.title;
-            document.getElementById('folder-description').innerText = folderInfo.description;
-            const gifElement = document.getElementById('folder-gif');
-            gifElement.src = folderInfo.gif;
-            gifElement.style.display = 'block'; // Show the GIF
-            
-            // Show the folder window
-            document.getElementById('folder-window').style.display = 'block';
+ // Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const folderData = {
+        "Snake Game": {
+            title: "Snake Game Folder",
+            description: "A 'snake' with a fixed starting position. The 'head' of the snake continually moves forward, unable to stop, growing ever longer.",
+            gif: "assests/videos/snakegame.gif"
+        },
+        "Random Team": {
+            title: "Random Team Folder",
+            description: "This folder contains random team generation tools.",
+            gif: "assests/videos/random_team.gif" // Example GIF
+        },
+        "Face Blur": {
+            title: "Face Blur Folder",
+            description: "This folder contains face blur tools.",
+            gif: "assests/videos/face_blur.gif" // Example GIF
+        },
+        "Vrom Vrom Car": {
+            title: "Vrom Vrom Car Folder",
+            description: "This folder contains the Vrom Vrom Car game.",
+            gif: "assests/videos/vromvrom.gif" // Example GIF
+        },
+        "Weather": {
+            title: "Weather Folder",
+            description: "This folder contains weather-related applications.",
+            gif: "assests/videos/weather.gif" // Example GIF
+        },
+        "Web Chat": {
+            title: "Web Chat Folder",
+            description: "This folder contains the Web Chat application.",
+            gif: "assests/videos/web_chat.gif" // Example GIF
+        },
+        "Spy Game": {
+            title: "Spy Game Folder",
+            description: "This folder contains the Spy Game.",
+            gif: "assests/videos/spy_game.gif" // Example GIF
+        },
+        "Spotify": {
+            title: "Spotify Folder",
+            description: "This folder contains the Spotify application.",
+            gif: "assests/videos/spotify.gif" // Example GIF
+        },
+        "Connect4": {
+            title: "Connect4 Folder",
+            description: "This folder contains the Connect4 game.",
+            gif: "assests/videos/connect4.gif" // Example GIF
+        },
+        "XO Game": {
+            title: "XO Game Folder",
+            description: "This folder contains the XO Game.",
+            gif: "assests/videos/xo_game.gif" // Example GIF
+        },
+        "Project Portfolio": {
+            title: "Project Portfolio Folder",
+            description: "This folder contains your project portfolio.",
+            gif: "assests/videos/project_portfolio.gif" // Example GIF
+        },
+        "2048 Game": {
+            title: "2048 Game Folder",
+            description: "This folder contains the 2048 Game.",
+            gif: "assests/videos/2048_game.gif" // Example GIF
+        },
+        "FlappyBird": {
+            title: "Flappy Bird Folder",
+            description: "This folder contains the Flappy Bird game.",
+            gif: "assests/videos/flappy_bird.gif" // Example GIF
+        },
+        "Kemo Portfolio": {
+            title: "Kemo Portfolio Folder",
+            description: "This folder contains the Kemo Portfolio.",
+            gif: "assests/videos/kemo_portfolio.gif" // Example GIF
+        },
+        "Lofi-Cafe": {
+            title: "Lofi-Cafe Folder",
+            description: "This folder contains the Lofi Cafe application.",
+            gif: "assests/videos/lofi_cafe.gif" // Example GIF
         }
+        // Add other folders as needed
+    };
+
+    // Function to handle the double-click event
+    document.querySelectorAll('.icon-container').forEach(icon => {
+        icon.addEventListener('dblclick', function() {
+            const folderName = this.querySelector('.icon-label').innerText;
+            const folderInfo = folderData[folderName];
+
+            if (folderInfo) {
+                // Update folder title and content
+                document.getElementById('folder-title').innerText = folderInfo.title;
+                document.getElementById('folder-description').innerText = folderInfo.description;
+                const gifElement = document.getElementById('folder-gif');
+                gifElement.src = folderInfo.gif;
+                gifElement.style.display = 'block'; // Show the GIF
+                
+                // Show the folder window
+                document.getElementById('folder-window').style.display = 'block';
+            }
+        });
+    });
+
+    // Function to close the folder
+    document.getElementById('close-folder').addEventListener('click', function() {
+        // Hide the folder window
+        document.getElementById('folder-window').style.display = 'none';
+        const gifElement = document.getElementById('folder-gif');
+        gifElement.style.display = 'none'; // Hide the GIF when closing
     });
 });
-
-// Function to close the folder
-document.getElementById('close-folder').addEventListener('click', function() {
-    // Hide the folder window
-    document.getElementById('folder-window').style.display = 'none';
-    const gifElement = document.getElementById('folder-gif');
-    gifElement.style.display = 'none'; // Hide the GIF when closing
-});
-
-
-
-
-  
-
-
