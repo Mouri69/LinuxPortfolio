@@ -286,5 +286,81 @@ function goFullScreen() {
     }
 }
 
+document.getElementById('Spotify-Desktop').addEventListener('dblclick', function() {
+    // Open the Spotify Recommender page
+    window.open('https://mouri69.recommender.vercel.app', '_blank');
+});
+
+document.getElementById('start-icon').addEventListener('click', function() {
+    // Hide the main screen
+    document.getElementById('desktop').style.display = 'none';
+  
+    // Show the bootup screen
+    document.getElementById('bootup-screen').style.display = 'block';
+  });
+  
+
+ // Folder data
+const folderData = {
+    "Snake Game": {
+        title: "Snake Game Folder",
+        description: "A 'snake' with a fixed starting position. The 'head' of the snake continually moves forward, unable to stop, growing ever longer.",
+        gif: "assests/videos/snakegame.gif"
+    },
+    "Random Team": {
+        title: "Random Team Folder",
+        description: "This folder contains random team generation tools.",
+        gif: "assests/videos/random_team.gif" // Example GIF
+    },
+    "Face Blur": {
+        title: "Face Blur Folder",
+        description: "This folder contains face blur tools.",
+        gif: "assests/videos/face_blur.gif" // Example GIF
+    },
+    "Vrom Vrom Car": {
+        title: "Vrom Vrom Car Folder",
+        description: "This folder contains the Vrom Vrom Car game.",
+        gif: "assests/videos/vromvrom.gif" // Example GIF
+    },
+    "Weather": {
+        title: "Weather Folder",
+        description: "This folder contains weather-related applications.",
+        gif: "assests/videos/weather.gif" // Example GIF
+    },
+    // Add all other folders similarly
+};
+
+// Function to handle the double-click event
+document.querySelectorAll('.icon-container').forEach(icon => {
+    icon.addEventListener('dblclick', function() {
+        const folderName = this.querySelector('.icon-label').innerText;
+        const folderInfo = folderData[folderName];
+
+        if (folderInfo) {
+            // Update folder title and content
+            document.getElementById('folder-title').innerText = folderInfo.title;
+            document.getElementById('folder-description').innerText = folderInfo.description;
+            const gifElement = document.getElementById('folder-gif');
+            gifElement.src = folderInfo.gif;
+            gifElement.style.display = 'block'; // Show the GIF
+            
+            // Show the folder window
+            document.getElementById('folder-window').style.display = 'block';
+        }
+    });
+});
+
+// Function to close the folder
+document.getElementById('close-folder').addEventListener('click', function() {
+    // Hide the folder window
+    document.getElementById('folder-window').style.display = 'none';
+    const gifElement = document.getElementById('folder-gif');
+    gifElement.style.display = 'none'; // Hide the GIF when closing
+});
+
+
+
+
+  
 
 

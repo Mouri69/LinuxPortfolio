@@ -22,7 +22,7 @@
 /* Terminal window */
 #terminal {
   position: absolute;
-  bottom: 60px;
+  bottom: 100px;
   right: 100px;
   width: 700px;
   height: 400px;
@@ -157,15 +157,6 @@ body {
   align-content: flex-start; /* Align icons to the top */
 }
 
-.desktop-icons2 {
-  position: absolute;
-  top: 3%; /* Adjust position as needed */
-  left: 10%; /* Adjust position as needed */
-  display: flex;
-  flex-direction: column; /* Stack icons vertically */
-  align-items: center; /* Center icons horizontally */
-}
-
 .icon-container {
   display: flex; /* Use flexbox for alignment */
   flex-direction: column; /* Stack icon and label vertically */
@@ -202,7 +193,7 @@ body {
   width: 95%;
   border-radius: 10px;
   height: 50px; /* Adjust height as needed */
-  background-color: rgba(228, 228, 228, 0.6); /* Dark transparent background */
+  background-color: rgba(228, 228, 228, 0.6); /* Light transparent background */
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between; /* Space between content and time/date */
@@ -211,12 +202,19 @@ body {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
 
+/* Start button (on the left) */
+.taskbar-start {
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+
 /* Centered content in the taskbar */
 .taskbar-content {
-  flex-grow: 1; /* Allow this section to grow */
   display: flex;
-  justify-content: center; /* Center icons or content */
+  justify-content: center; /* Center icons */
   align-items: center; /* Center items vertically */
+  gap: 15px; /* Add space between icons */
+  flex-grow: 1; /* Allow this section to grow to fill space */
 }
 
 /* Vertical lines */
@@ -231,12 +229,22 @@ body {
 .taskbar-icon {
   width: 30px; /* Adjust size of icons */
   height: auto; /* Maintain aspect ratio */
-  position:relative;
-  left:10%;
-  transform: translateX(-10%);
-  margin: 0 10px; /* Equal margin on both sides */
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.taskbar-icon:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Time and date (on the right) */
+.taskbar-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align time and date to the right */
+  font-family: Arial, sans-serif;
+  color: black;
+  font-size: 14px;
 }
 
 @media (max-width: 600px) {
@@ -263,3 +271,61 @@ body {
 #date {
   margin-left: 10px; /* Space between time and date */
 }
+
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 60px; /* Adjust the size of the folder icon */
+  height: auto;
+}
+
+.icon-label {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Styling for the folder window (modal) */
+.folder-window {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.folder-header {
+  background-color: #0078d7;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.folder-header button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.folder-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100% - 40px); /* Adjust height based on header */
+}
+
