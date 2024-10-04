@@ -288,7 +288,7 @@ function goFullScreen() {
 
 document.getElementById('Spotify-Desktop').addEventListener('dblclick', function() {
     // Open the Spotify Recommender page
-    window.open('https://mouri69.recommender.vercel.app', '_blank');
+    window.open('https://mouri69-recommender.vercel.app', '_blank');
 });
 
 document.getElementById('start-icon').addEventListener('click', function() {
@@ -313,11 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "This folder contains random team generation tools.",
             gif: "assests/videos/random_team.gif" // Example GIF
         },
-        "Face Blur": {
-            title: "Face Blur Folder",
-            description: "This folder contains face blur tools.",
-            gif: "assests/videos/face_blur.gif" // Example GIF
-        },
         "Vrom Vrom Car": {
             title: "Vrom Vrom Car Folder",
             description: "This folder contains the Vrom Vrom Car game.",
@@ -338,11 +333,6 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "This folder contains the Spy Game.",
             gif: "assests/videos/spy_game.gif" // Example GIF
         },
-        "Spotify": {
-            title: "Spotify Folder",
-            description: "This folder contains the Spotify application.",
-            gif: "assests/videos/spotify.gif" // Example GIF
-        },
         "Connect4": {
             title: "Connect4 Folder",
             description: "This folder contains the Connect4 game.",
@@ -352,11 +342,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "XO Game Folder",
             description: "This folder contains the XO Game.",
             gif: "assests/videos/xo_game.gif" // Example GIF
-        },
-        "Project Portfolio": {
-            title: "Project Portfolio Folder",
-            description: "This folder contains your project portfolio.",
-            gif: "assests/videos/project_portfolio.gif" // Example GIF
         },
         "2048 Game": {
             title: "2048 Game Folder",
@@ -372,11 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Kemo Portfolio Folder",
             description: "This folder contains the Kemo Portfolio.",
             gif: "assests/videos/kemo_portfolio.gif" // Example GIF
-        },
-        "Lofi-Cafe": {
-            title: "Lofi-Cafe Folder",
-            description: "This folder contains the Lofi Cafe application.",
-            gif: "assests/videos/lofi_cafe.gif" // Example GIF
         }
         // Add other folders as needed
     };
