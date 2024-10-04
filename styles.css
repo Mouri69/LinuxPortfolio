@@ -37,6 +37,7 @@
   resize: both;  /* Allows resizing */
   overflow: auto; /* Enables scroll on resize */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  z-index:1;
 }
 
 #terminal-header {
@@ -51,6 +52,7 @@
   text-align: center;
   height: 30px;
   position: relative;
+  z-index:2;
 }
 
 /* Mac-style control buttons */
@@ -65,6 +67,7 @@
   font-family: 'Monaco', 'Courier New', monospace; /* Optional: macOS terminal font style */
   border-radius: 8px 8px 0 0; /* Optional: round the top corners */
   position: relative;
+  z-index:2;
 }
 
 /* Styling for Mac-style buttons in the terminal header */
