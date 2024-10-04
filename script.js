@@ -390,7 +390,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (folderInfo) {
                 // Update folder title and content
                 document.getElementById('folder-title').innerText = folderInfo.title;
-                document.getElementById('folder-description').innerText = folderInfo.description;
                 const gifElement = document.getElementById('folder-gif');
                 gifElement.src = folderInfo.gif;
                 gifElement.style.display = 'block'; // Show the GIF
