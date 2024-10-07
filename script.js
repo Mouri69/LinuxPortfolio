@@ -388,3 +388,89 @@ document.addEventListener('DOMContentLoaded', function() {
         gifElement.style.display = 'none'; // Hide the GIF when closing
     });
 });
+
+
+//Chrome iframe opener
+document.getElementById('chrome-icon').addEventListener('click', function() {
+    const iframe = document.getElementById('chrome-iframe');
+    const iframeContainer = document.getElementById('iframe-container');
+    
+    // Set the iframe src to the Google search URL
+    iframe.src = "https://www.google.com/search?igu=1";
+    
+    // Make the iframe visible
+    iframeContainer.style.display = "block";
+});
+
+// Get elements
+const draggableWindow = document.getElementById('draggable-window');
+const chromeHeader = document.getElementById('chrome-header');
+const closeButton = document.querySelector('.chrome-button.close'); // Get the close button
+
+// Variables for tracking the dragging state and offset positions
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+// Mouse down event to start dragging
+chromeHeader.addEventListener('mousedown', function(event) {
+    event.preventDefault(); // Prevent default behavior
+    isDragging = true;
+
+    // Calculate the offset of the mouse cursor from the draggable window's top-left corner
+    const rect = draggableWindow.getBoundingClientRect();
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+
+    // Disable text selection while dragging
+    document.body.style.userSelect = 'none';
+});
+
+// Mouse move event to handle dragging
+document.addEventListener('mousemove', function(event) {
+    if (isDragging) {
+        // Calculate the new position of the draggable window
+        const posX = event.clientX - offsetX; // X position
+        const posY = event.clientY - offsetY; // Y position
+
+        // Get the dimensions of the window
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const rect = draggableWindow.getBoundingClientRect();
+
+        // Check for boundaries to keep the draggable window within the viewport
+        let newX = posX;
+        let newY = posY;
+
+        // Ensure the window stays within the left and right boundaries
+        if (newX < 0) newX = 0; // Left boundary
+        if (newX + rect.width > windowWidth) newX = windowWidth - rect.width; // Right boundary
+
+        // Ensure the window stays within the top and bottom boundaries
+        if (newY < 0) newY = 0; // Top boundary
+        if (newY + rect.height > windowHeight) newY = windowHeight - rect.height; // Bottom boundary
+
+        // Move the window to the new position
+        draggableWindow.style.left = `${newX}px`;
+        draggableWindow.style.top = `${newY}px`;
+    }
+});
+
+// Mouse up event to stop dragging
+document.addEventListener('mouseup', function() {
+    isDragging = false; // Stop dragging
+    document.body.style.userSelect = 'auto'; // Re-enable text selection
+});
+
+// Optional: Mouse leave event to stop dragging if the mouse leaves the window
+draggableWindow.addEventListener('mouseleave', function() {
+    isDragging = false; // Stop dragging
+    document.body.style.userSelect = 'auto'; // Re-enable text selection
+});
+
+// Add event listener for the close button to hide the chrome window
+closeButton.addEventListener('click', function() {
+    const iframeContainer = document.getElementById('iframe-container');
+    iframeContainer.style.display = 'none'; // Hide the iframe container
+});
+

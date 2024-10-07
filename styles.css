@@ -333,3 +333,132 @@ body {
   height: calc(100% - 40px); /* Adjust height based on header */
 }
 
+#iframe-container {
+  position: absolute;
+  bottom: 750px;
+  left: 10%;
+  width: 100%;
+}
+
+.chrome-window {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f1f1f1;
+}
+
+.chrome-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 8px 8px 0 0;
+}
+
+.chrome-title {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.chrome-logo {
+  width: 20px; /* Adjust logo size */
+  height: 20px; /* Adjust logo size */
+  margin-right: 8px;
+}
+
+.chrome-buttons {
+  display: flex;
+  gap: 6px;
+  margin-left: auto; /* Move buttons to the right */
+}
+
+.chrome-button {
+  display: inline-block;
+  width: 15px; /* Slightly increased size */
+  height: 15px; /* Slightly increased size */
+  border-radius: 50%;
+  background-color: #ff5f57; /* Close button */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.chrome-button.minimize {
+  background-color: #ffbd2e; /* Minimize button */
+}
+
+.chrome-button.maximize {
+  background-color: #28c940; /* Maximize button */
+}
+
+/* Hover effects */
+.chrome-button.close:hover {
+  background-color: #ff1c1c; /* More noticeable red when hovered */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+.chrome-button.minimize:hover {
+  background-color: #ffb000; /* Slightly darker yellow on hover */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+.chrome-button.maximize:hover {
+  background-color: #22b732; /* Slightly darker green on hover */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+.url-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc; /* Border above URL bar */
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 5px;
+  margin-right: 10px; /* Space between buttons and URL input */
+}
+
+.nav-button {
+  padding: 5px 8px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #dcdcdc; /* Highlight on hover */
+}
+
+.url-bar input {
+  width: 80%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  background-color: #fff;
+  color: #333;
+  pointer-events: none; /* Make the input field non-editable */
+}
+
+#chrome-iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 0 0 8px 8px;
+}
+
+#draggable-window {
+    position: absolute;
+    top: 100px;  /* Set an initial position */
+    left: 25%;
+    width: 70%;
+    z-index: 1000; /* Keep it above other content */
+    cursor: grab;  /* Change cursor to indicate draggable */
+}
+
+#draggable-window:active {
+    cursor: move;  /* When dragging, show 'grabbing' cursor */
+}

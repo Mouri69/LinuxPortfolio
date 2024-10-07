@@ -115,9 +115,38 @@ Welcome to Linux Portfolio!</pre>
         <div class="vertical-line"></div> <!-- Vertical line -->
       <div class="taskbar-content">
         <img src="assests/spotify.png" alt="Spotify" class="taskbar-icon" id="spotify-icon">
+        <img src="assests/chrome.png" alt="Chrome" class="taskbar-icon" id="chrome-icon">
         <img src="assests/terminal.png" alt="Terminal" class="taskbar-icon">
-        <img src="assests/logo.png" alt="VSCode" class="taskbar-icon">    
+        <img src="assests/logo.png" alt="VSCode" class="taskbar-icon">  
       </div>
+     
+    <!-- Add this iframe below the taskbar -->
+    <div id="iframe-container" style="display:none;">
+      <div class="chrome-window" id="draggable-window">
+          <div class="chrome-header" id="chrome-header">
+              <div class="chrome-title">
+                  <img src="assests/chrome.png" alt="Chrome Logo" class="chrome-logo">
+                  <span>Google Chrome</span>
+              </div>
+              <div class="chrome-buttons">
+                  <span class="chrome-button close"></span>
+                  <span class="chrome-button minimize"></span>
+                  <span class="chrome-button maximize"></span>
+              </div>
+          </div>
+          <div class="url-bar">
+              <div class="navigation-buttons">
+                  <button class="nav-button">←</button>
+                  <button class="nav-button">→</button>
+                  <button class="nav-button">↻</button>
+                  <button class="nav-button">★</button>
+              </div>
+              <input type="text" value="www.google.com" readonly>
+          </div>
+          <iframe id="chrome-iframe" src="" frameborder="0"></iframe>
+      </div>
+  </div>
+    
       <div class="vertical-line"></div> <!-- Vertical line -->
       <div class="taskbar-time">
           <span id="time"></span>
