@@ -70,11 +70,11 @@ function goFullScreen() {
     
         // Create a new prompt with input
         const newPrompt = document.createElement('p');
-        newPrompt.innerHTML = `<span class="prompt">user@mouri69:~$ </span><input type="text" class="active-input" autofocus>`;
+        newPrompt.innerHTML = `<span class="prompt">user@mouri69:~/Desktop$ </span><input type="text" class="active-input" autofocus>`;
     
         // Add explicit styles to the new input field
         const newInput = newPrompt.querySelector('.active-input');
-        newInput.style.width = 'calc(100% - 150px)'; // Adjust width as necessary
+        newInput.style.width = 'calc(80% - 150px)'; // Adjust width as necessary
         newInput.style.background = 'none'; // Transparent background
         newInput.style.border = 'none'; // Remove border
         newInput.style.color = 'green'; // Keep text color green for terminal effect
@@ -140,8 +140,42 @@ function executeCommand(command, input) {
         terminalContent.innerHTML += '<p style="color: #434B8D;">' + projects.join('</p><p style="color: #434B8D;">') + '</p>';
     } else if (command === 'clear') {
         terminalContent.innerHTML = ''; // Clear terminal screen
-    } else {
+    }
+    else if (command === 'help') {
+        const helpText = `
+            <p style="color: #434B8D;"><strong>Available commands:</strong></p>
+            <ul style="color: #434B8D;">
+                <li><strong>cd [folderName]</strong>: Change directory to a specified project folder.</li>
+                <li><strong>ls</strong>: List all available projects.</li>
+                <li><strong>info</strong>: Display information about this terminal application.</li>
+                <li><strong>exit</strong>: Close the terminal interface.</li>
+                <li><strong>version</strong>: Display the version of this application.</li>
+                <li><strong>contact</strong>: Provides contact information for support.</li>
+                <li><strong>clear</strong>: Clear the terminal screen.</li>
+                <li><strong>help</strong>: Show this help message.</li>
+            </ul>
+        `;
+        terminalContent.innerHTML += helpText; // Show help message
+    } else if (command === 'info') {
+        const infoText = `
+            <p style="color: #434B8D;">This is a terminal simulation for managing projects.</p>
+            <p style="color: #434B8D;">You can navigate through the projects and access their directories.</p>
+        `;
+        terminalContent.innerHTML += infoText; // Show info message
+    } else if (command === 'exit') {
+        terminalContent.innerHTML += `<p style="color: #434B8D;">Exiting the terminal...</p>`; // Simulate exit
+        terminal.style.display = "none";
+    } else if (command === 'version') {
+        terminalContent.innerHTML += `<p style="color: #434B8D;">Terminal Version 1.0.0</p>`; // Show version
+    } else if (command === 'contact') {
+        terminalContent.innerHTML += `
+            <p style="color: #434B8D;">For support, contact: trident_mazen@outlook.com</p>
+            <p style="color: #434B8D;">For donations, donate at: mazenmohamed69@instapay or 01097803355 🤧</p>
+        `; // Show contact info
+     } else {
         terminalContent.innerHTML += `<p>Command not found: ${command}</p>`;
+        terminalContent.innerHTML += `<p>You can use "help" for further clarifications</p>`;
+
     }
 
     // Disable the old input
@@ -474,3 +508,10 @@ closeButton.addEventListener('click', function() {
     iframeContainer.style.display = 'none'; // Hide the iframe container
 });
 
+// Get the favorite button element
+const favPageButton = document.getElementById('fav-page');
+
+// Add click event listener to toggle the active class
+favPageButton.addEventListener('click', function() {
+    favPageButton.classList.toggle('active'); // Toggles the 'active' class
+});

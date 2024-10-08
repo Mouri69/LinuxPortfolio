@@ -442,6 +442,20 @@ body {
   color: #333;
   pointer-events: none; /* Make the input field non-editable */
 }
+#fav-page {
+  transition: background-color 0.3s; /* Optional: Add transition for smooth effect */
+}
+
+#fav-page.active {
+  background-color: gold; /* Color when active */
+  color:rgb(41, 32, 9);
+}
+
+/* You can keep this for the hover effect */
+#fav-page:hover {
+  background-color: #ffd90098; /* A noticeable color change on hover */
+}
+
 
 #chrome-iframe {
   width: 100%;
