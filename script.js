@@ -502,16 +502,135 @@ draggableWindow.addEventListener('mouseleave', function() {
     document.body.style.userSelect = 'auto'; // Re-enable text selection
 });
 
-// Add event listener for the close button to hide the chrome window
-closeButton.addEventListener('click', function() {
-    const iframeContainer = document.getElementById('iframe-container');
-    iframeContainer.style.display = 'none'; // Hide the iframe container
+// Chrome iframe opener
+document.getElementById('chrome-icon').addEventListener('click', function() {
+    const chromeContainer = document.getElementById('chrome-container');
+    const githubContainer = document.getElementById('github-container'); // Reference to GitHub container
+    
+    // Hide GitHub container if it's open
+    githubContainer.style.display = 'none';
+    
+    // Set the iframe src to the Google search URL
+    document.getElementById('chrome-iframe').src = "https://www.google.com/search?igu=1";
+    
+    // Make the iframe visible
+    chromeContainer.style.display = "block";
 });
+
+// GitHub iframe opener
+document.getElementById('github-icon').addEventListener('click', function() {
+    const githubContainer = document.getElementById('github-container');
+    const chromeContainer = document.getElementById('chrome-container'); // Reference to Chrome container
+
+    // Hide Chrome container if it's open
+    chromeContainer.style.display = 'none';
+
+    // Fetch user data from GitHub API
+    fetch('https://api.github.com/users/Mouri69')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Log the fetched data
+        console.log(data);
+
+        // Update the GitHub container with user data
+        document.getElementById('github-username').innerText = data.login;
+        document.getElementById('github-name').innerText = data.name || 'No Name Available';
+        document.getElementById('github-bio').innerText = data.bio || 'No bio available.';
+        document.getElementById('github-profile-link').href = data.html_url;
+        document.getElementById('github-followers').innerText = data.followers;
+        document.getElementById('github-following').innerText = data.following;
+        document.getElementById('github-repos').innerText = data.public_repos;
+        document.getElementById('github-avatar').src = data.avatar_url;
+
+        // Make the GitHub container visible
+        githubContainer.style.display = "block";
+    })
+    .catch(error => {
+        console.error('Error fetching GitHub data:', error);
+        githubContainer.innerHTML = '<p>Error fetching GitHub data. Please try again later.</p>';
+    });
+
+});
+
+// Minimize button functionality
+document.querySelector('.minimize').addEventListener('click', function() {
+    const githubWindow = document.querySelector('.github-window');
+    githubWindow.style.display = 'none'; // Hide the window
+});
+
+// Maximize button functionality
+document.querySelector('.maximize').addEventListener('click', function() {
+    const githubWindow = document.querySelector('.github-window');
+    githubWindow.style.width = '100%'; // Change to full width
+    githubWindow.style.height = '100%'; // Change to full height
+});
+
+// Close button functionality
+document.querySelector('.close').addEventListener('click', function() {
+    const githubContainer = document.getElementById('github-container');
+    githubContainer.style.display = 'none'; // Close the window
+});
+
+// Draggable functionality
+dragElement(document.getElementById("draggable-window"));
+
+function dragElement(elmnt) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    
+    const header = document.getElementById("github-header");
+    if (header) {
+        header.onmousedown = dragMouseDown;
+    } else {
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+// Add event listener for the close button to hide the chrome window
+document.querySelector('.chrome-button.close').addEventListener('click', function() {
+    const chromeContainer = document.getElementById('chrome-container');
+    chromeContainer.style.display = 'none'; // Hide the iframe container
+});
+
+// Similar for GitHub close button
+document.querySelector('.github-button.close').addEventListener('click', function() {
+    const githubContainer = document.getElementById('github-container');
+    githubContainer.style.display = 'none'; // Hide the iframe container
+}); 
 
 // Get the favorite button element
 const favPageButton = document.getElementById('fav-page');
 
 // Add click event listener to toggle the active class
 favPageButton.addEventListener('click', function() {
-    favPageButton.classList.toggle('active'); // Toggles the 'active' class
+    favPageButton.classList.toggle('active');
 });

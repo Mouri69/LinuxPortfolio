@@ -333,7 +333,7 @@ body {
   height: calc(100% - 40px); /* Adjust height based on header */
 }
 
-#iframe-container {
+#chrome-container {
   position: absolute;
   bottom: 750px;
   width: 100%;
@@ -474,4 +474,127 @@ body {
 
 #draggable-window:active {
     cursor: move;  /* When dragging, show 'grabbing' cursor */
+}
+
+#github-container {
+  position: absolute;
+  bottom: 750px;
+  width: 100%;
+}
+
+.github-window {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #1e1e1e;
+}
+
+.github-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 8px 8px 0 0;
+}
+
+.github-title {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.github-logo {
+  width: 20px; /* Adjust logo size */
+  height: 20px; /* Adjust logo size */
+  margin-right: 8px;
+}
+
+.github-buttons {
+  display: flex;
+  gap: 6px;
+  margin-left: auto; /* Move buttons to the right */
+}
+
+.github-button {
+  display: inline-block;
+  width: 15px; /* Slightly increased size */
+  height: 15px; /* Slightly increased size */
+  border-radius: 50%;
+  background-color: #ff5f57; /* Close button */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.github-button.minimize {
+  background-color: #ffbd2e; /* Minimize button */
+}
+
+.github-button.maximize {
+  background-color: #28c940; /* Maximize button */
+}
+
+/* Hover effects */
+.github-button.close:hover {
+  background-color: #ff1c1c; /* More noticeable red when hovered */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+.github-button.minimize:hover {
+  background-color: #ffb000; /* Slightly darker yellow on hover */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+.github-button.maximize:hover {
+  background-color: #22b732; /* Slightly darker green on hover */
+  transform: scale(1.1); /* Slightly larger when hovered */
+}
+
+#github-iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 0 0 8px 8px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color:#dbdbdb
+}
+
+.github-avatar {
+  width: 100px; /* Size of the profile picture */
+  height: 100px; /* Size of the profile picture */
+  border-radius: 50%; /* Circular image */
+  border: 2px solid #fff; /* White border around the avatar */
+  margin-right: 15px; /* Space between image and text */
+}
+
+.profile-details {
+  flex-grow: 1; /* Allow details to take remaining space */
+  color:#dbdbdb
+
+}
+
+#github-profile-link {
+  display: inline-block; /* Make it a block element for padding */
+  padding: 10px 15px; /* Add padding for better clickability */
+  background-color: #28a745; /* Green background */
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  font-weight: bold; /* Make text bold */
+}
+
+/* Hover effect */
+#github-profile-link:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.additional-info {
+  margin-top: 10px; /* Space above additional info */
+  color:#dbdbdb
+
 }

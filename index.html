@@ -117,10 +117,11 @@ Welcome to Linux Portfolio!</pre>
         <img src="assests/chrome.png" alt="Chrome" class="taskbar-icon" id="chrome-icon">
         <img src="assests/terminal.png" alt="Terminal" class="taskbar-icon">
         <img src="assests/spotify.png" alt="Spotify" class="taskbar-icon" id="spotify-icon">
+        <img src="assests/github.png" alt="github-icon" class="taskbar-icon" id="github-icon">
       </div>
      
     <!-- Add this iframe below the taskbar -->
-    <div id="iframe-container" style="display:none;">
+    <div id="chrome-container" style="display:none;">
       <div class="chrome-window" id="draggable-window">
           <div class="chrome-header" id="chrome-header">
               <div class="chrome-title">
@@ -145,6 +146,44 @@ Welcome to Linux Portfolio!</pre>
           <iframe id="chrome-iframe" src="" frameborder="0"></iframe>
       </div>
   </div>
+   <!-- Add this iframe below the taskbar (github) -->
+   <div id="github-container" style="display:none;">
+    <div class="github-window" id="draggable-window">
+        <div class="github-header" id="github-header">
+            <div class="github-title">
+                <img src="assests/github.png" alt="GitHub Logo" class="github-logo">
+                <span>GitHub: <span id="github-username"></span></span>
+            </div>
+            <div class="github-buttons">
+                <span class="github-button close"></span>
+                <span class="github-button minimize"></span>
+                <span class="github-button maximize"></span>
+            </div>
+        </div>
+        <div class="url-bar">
+            <div class="navigation-buttons">
+                <button class="nav-button">←</button>
+                <button class="nav-button">→</button>
+                <button class="nav-button">↻</button>
+                <button class="nav-button" id="fav-page">★</button>
+            </div>
+            <input type="text" value="github.com/Mouri69" readonly>
+        </div>
+        <div class="profile-info">
+            <img id="github-avatar" src="" alt="Profile Picture" class="github-avatar">
+            <div class="profile-details">
+                <h2 id="github-name"></h2>
+                <p id="github-bio"></p>
+                <a id="github-profile-link" href="" target="_blank">View Profile on GitHub</a>
+            </div>
+        </div>
+        <div class="additional-info">
+            <p>Followers: <span id="github-followers"></span></p>
+            <p>Following: <span id="github-following"></span></p>
+            <p>Public Repositories: <span id="github-repos"></span></p>
+        </div>
+    </div>
+</div>
     
       <div class="vertical-line"></div> <!-- Vertical line -->
       <div class="taskbar-time">
